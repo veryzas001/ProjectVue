@@ -3,12 +3,10 @@
     <router-link
       class="event-link"
       :to="{ name: 'event-show', params: { id: event.id } }"
-      v-for="event in events"
-      :key="event.id"
     >
 
       <div class="event-card -shadow">
-        <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
+        <span class="eyebrow">@{{ event.time }} on {{ event.data }}</span>
         <h4 class="title">{{ event.title }}</h4>
         {{ event.attendees.length }} attending
       </div>
@@ -19,29 +17,8 @@
 
 <script>
 export default {
-  data() {
-    return {
-      events: [
-        {
-          id: 1,
-          data: "TUE AUG 30 2019",
-          time: "06.30",
-          attendees: [
-            { id: "Avav", name: "Sanit" },
-            { id: "Bava", name: "ADKJAS" }
-          ]
-        },
-        {
-          id: 2,
-          data: "TUE AUG 30 2019",
-          time: "07.30",
-          attendees: [
-            { id: "Avav", name: "Sanit" },
-            { id: "Bava", name: "SSSSS" }
-          ]
-        }
-      ]
-    };
+  props: {
+    event: Object
   }
 };
 </script>
